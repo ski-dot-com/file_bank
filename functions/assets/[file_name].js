@@ -34,7 +34,7 @@ export async function onRequestGet(context) {
 	if (!index.hasOwnProperty(file_name)) {
 		return new Response(null, { status: 404 });
 	}
-	return Promise.all(
+	return await Promise.all(
 		[...Array(index[file_name])]
 			.map((_, i) => context.env.ASSETS.fetch(`/binary/${fname}_segment_${i}.bin`)
 				.then(
