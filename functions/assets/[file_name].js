@@ -26,7 +26,7 @@ export async function onRequestGet(context) {
 	/**
 	* @type {Object<string, number>}
 	*/
-	const index = JSON.parse(await context.env.ASSETS.fetch("https://file-bank-0.pages.dev/index.json"));
+	const index = JSON.parse(await(await context.env.ASSETS.fetch("https://file-bank-0.pages.dev/index.json")).text());
 	/**
 	 * @type {string}
 	 */
