@@ -36,7 +36,7 @@ export async function onRequestGet(context) {
 	}
 	return await Promise.all(
 		[...Array(index[file_name])]
-			.map((_, i) => context.env.ASSETS.fetch(`https://file-bank-0.pages.dev/binary/${fname}_segment_${i}.bin`)
+			.map((_, i) => context.env.ASSETS.fetch(`https://file-bank-0.pages.dev/binary/${file_name}_segment_${i}.bin`)
 				.then(
 					(v) => v.blob()
 				)
