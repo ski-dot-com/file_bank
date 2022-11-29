@@ -26,7 +26,7 @@ export async function onRequestGet(context) {
 	/**
 	* @type {Object<string, number>}
 	*/
-	const index = JSON.parse(await context.env.ASSETS.fetch("../index.json"));
+	const index = JSON.parse(await context.env.ASSETS.fetch("https://file-bank-0.pages.dev/index.json"));
 	/**
 	 * @type {string}
 	 */
@@ -36,7 +36,7 @@ export async function onRequestGet(context) {
 	}
 	return await Promise.all(
 		[...Array(index[file_name])]
-			.map((_, i) => context.env.ASSETS.fetch(`../binary/${fname}_segment_${i}.bin`)
+			.map((_, i) => context.env.ASSETS.fetch(`https://file-bank-0.pages.dev/binary/${fname}_segment_${i}.bin`)
 				.then(
 					(v) => v.blob()
 				)
